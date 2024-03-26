@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PONG_Sroka"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Black"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown"
+        MouseMove="Window_MouseMove">
     <Grid>
 
     </Grid>
