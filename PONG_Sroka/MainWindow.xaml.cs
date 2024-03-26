@@ -24,6 +24,13 @@ namespace PONG_Sroka
         public MainWindow()
         {
             InitializeComponent();
+            ball = new(10, 10, MainCanavs);
+            mousePlayer = new(MainCanavs, 10, 100, new SolidColorBrush(Colors.White), false);
+            keyboardPlayer = new(MainCanavs, 10, 100, new SolidColorBrush(Colors.White), true);
+            timer = new();
+            timer.Interval = TimeSpan.FromMilliseconds(16);
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
     }
 }
