@@ -38,5 +38,30 @@ namespace PONG_Sroka
             KeyboardPlayer.Content = keyboardPlayer.Points.ToString();
             MousePlayer.Content = mousePlayer.Points.ToString();
         }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            if (ball.X <= 0)
+            {
+                mousePlayer.Points += 1;
+                UpdateScores();
+                ball.Reset();
+            }
+            if (ball.X >= ball.Canvas.Width)
+            {
+                keyboardPlayer.Points += 1;
+                UpdateScores();
+                ball.Reset();
+            }
+            if (ball.Y >= keyboardPlayer.Y && ball.Y <= keyboardPlayer.Y + keyboardPlayer.Height && ball.X <= keyboardPlayer.X + keyboardPlayer.Width && ball.X >= keyboardPlayer.X)
+            {
+                ball.DirectionX *= -1;
+            }
+            if (ball.Y >= mousePlayer.Y && ball.Y <= mousePlayer.Y + mousePlayer.Height && ball.X >= mousePlayer.X - ball.Width && ball.X <= mousePlayer.X + mousePlayer.Width)
+            {
+                ball.DirectionX *= -1;
+            }
+            ball.Move();
+        }
     }
 }
