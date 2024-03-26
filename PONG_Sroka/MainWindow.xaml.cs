@@ -74,13 +74,13 @@ namespace PONG_Sroka
                 case Key.W:
                     if (keyboardPlayer.Y <= 0)
                         return;
-                    keyboardPlayer.Y -= 10;
+                    keyboardPlayer.Y -= 40;
                     keyboardPlayer.Draw();
                     break;
                 case Key.S:
                     if (keyboardPlayer.Y + keyboardPlayer.Height >= MainCanavs.Height)
                         return;
-                    keyboardPlayer.Y += 10;
+                    keyboardPlayer.Y += 40;
                     keyboardPlayer.Draw();
                     break;
                 case Key.R:
@@ -90,6 +90,13 @@ namespace PONG_Sroka
                     UpdateScores();
                     break;
             }
+        }
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mouse.GetPosition(this).Y + mousePlayer.Height >= MainCanavs.Height)
+                return;
+            mousePlayer.Y = Mouse.GetPosition(this).Y;
+            mousePlayer.Draw();
         }
     }
 }
