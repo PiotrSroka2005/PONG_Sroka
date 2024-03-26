@@ -32,5 +32,11 @@ namespace PONG_Sroka
             timer.Tick += Timer_Tick;
             timer.Start();
         }
+
+        private void UpdateScores()
+        {
+            KeyboardPlayer.Content = keyboardPlayer.Points.ToString();
+            MousePlayer.Content = mousePlayer.Points.ToString();
+        }
     }
 }
